@@ -1,0 +1,22 @@
+{{log this}}
+{{#if posts.length}}
+{{#each posts}}
+<a href="/blog/{{id}}">
+  <div class="card">
+    <div class="card-content">
+      <p class="title">
+        {{this.title}}, posted on {{formatDate this.createdAt}}
+      </p>
+    </div>
+  </div>
+</a>
+{{/each}}
+{{else}}
+<p style="text-align: center">No posts yet.</p>
+{{/if}}
+<div class="center">
+  <button class="button" id="new-post">New Blog Post</button>
+</div>
+
+
+<script src="/js/postButton.js"></script>

@@ -1,0 +1,88 @@
+{{log this}}
+
+<div class="card" id="post" data-postid="{{postId}}">
+  <div class="card-content">
+    <div class="media-content">
+      <p class="title is-4">{{title}}</p>
+      <p class="subtitle is-6">Posted by @{{user.username}} {{formatDate createdAt}}</p>
+    </div>
+  </div>
+  <div class="content">{{content}}</div>
+</div>
+</div>
+
+<div class="container is-one-third" id="updateForm" style="padding:2rem; display:none">
+  <form>
+    <div class="field">
+      <label class="label">Blog Title</label>
+      <div class="control">
+        <input class="input is-normal" id="title-input" type="text" value="{{title}}">
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Blog Content</label>
+      <div class="control">
+        <input class="textarea" id="content-input" type="text" value="{{content}}">
+      </div>
+    </div>
+
+  </form>
+</div>
+
+{{#compareID userId user.id}}
+<div class="center">
+  <button class="button" id="begin-update-button">Update Post</button>
+  <button class="button" id="update-button" style="display:none">Update Post</button>
+  <button class="button" id="delete-button">Delete Post</button>
+</div>
+{{/compareID}}
+
+{{log comments}}
+{{#if comments.length}}
+<h3 style="text-align: center; font-size: 30px;">Comments:</h3>
+{{#each comments}}
+<div id="comments-container">
+
+  <div class="card">
+    <div class="card-content" id="comment-card">
+      <div class="media-content">
+        <p class="subtitle is-6" style="font-size: 17px">Posted by @{{this.user.username}} {{formatDate this.createdAt}}</p>
+      </div>
+
+    </div>
+    <div class="content">{{this.content}}</div>
+  </div>
+</div>
+
+</div>
+
+
+{{/each}}
+{{else}}
+<p style="text-align: center; font-size: 30px;">No comments yet.</p>
+{{/if}}
+
+<div class="center">
+  <button class="button" id="add-comment-button">Add a comment</button>
+</div>
+
+<div id="commentBlock" style="display:none">
+  <div class="container is-one-third" id="commentForm" style="padding:2rem;">
+    <form>
+      <div class="field">
+        <label class="label">Comments</label>
+        <div class="control">
+          <input class="input is-normal" id="comment-input" type="text">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="center">
+    <button class="button" id="create-button"></button>
+  </div>
+</div>
+
+<script src="/js/addComment.js"></script>
+<script src="/js/updatePost.js"></script>
+<script src="/js/deleteComment.js"></script>

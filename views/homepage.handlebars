@@ -1,0 +1,17 @@
+{{log this}}
+{{#each posts as |post|}}
+<a href="/blog/{{id}}" class="getBlogPost">
+    <div class="card">
+
+        <div class="card-content">
+            <p class="title">
+                {{title}}
+            </p>
+            <p class="subtitle">
+                Posted by @{{user.username}} on {{formatDate createdAt}}
+            </p>
+        </div>
+
+    </div>
+</a>
+{{/each}}
