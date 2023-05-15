@@ -11,7 +11,7 @@ None
 
 Usage is available on the website. You can sign up and create your own posts 
 
-[link to Blog Spot]
+[link to Blog Spot] (https://fierce-chamber-60178.herokuapp.com/)
 ![Screenshot of webpage]
 
 ## Credits
